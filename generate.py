@@ -1,3 +1,13 @@
+import requests, json, random
+
 f = open("./README.md", "w")
-f.write("Test Github Action")
+pokemon_id = random.randint(1, 151)
+res = requests.get(f'https://pokeapi.co/api/v2/pokemon/{pokemon_id}')
+result = json.loads(res.text)
+f.write(f'''<p align="center">
+    <img src="{result['sprites']['front_default']}" width="150" height="150">
+    <p>You have been greeted by - <b>{result['name'].title()}</b></p>
+    <p>Have a nice day!</p>
+</p>
+''')
 f.close()
