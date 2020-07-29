@@ -1,3 +1,3 @@
 f = open("./README.md", "w")
-f.write("Testing")
+f.write("Test Github Action")
 f.close()
